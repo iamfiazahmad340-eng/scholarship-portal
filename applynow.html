@@ -1,0 +1,18 @@
+// Naya form "Apply Now"
+document.getElementById('applyForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+        studentName: document.getElementById('sName').value,
+        cgpa: document.getElementById('cgpa').value,
+        degree: document.getElementById('degree').value,
+        status: "Pending" // Ye database mein automatic jayega
+    };
+    
+    // Firebase mein bhejo
+    await fetch('https://YOUR_DB_URL.firebaseio.com/applications.json', {
+        method: 'POST',
+        body: JSON.stringify(data)
+    });
+    alert('✅ Application Submitted Successfully!');
+});
+

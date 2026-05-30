@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalScholar | Study Abroad Scholarship Information Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="smooth.css">
+    <link rel="stylesheet" href="fix-layout.css">
+</head>
+<link rel="stylesheet" href="fix-jump.css">
+<script src="fix-jump.js"></script>
+<body>
+
+    <header class="navbar">
+        <div class="container logo-container">
+            <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> Global<span>Scholar</span></a>
+
+            <!-- Is code ko index.html ke Header ke andar nav-links se replace karein -->
+<nav class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="#scholarships">Scholarships</a>
+    <a href="#countries">Countries</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i> Dark Mode
+</button>
+</nav>
+
+            <div class="nav-auth">
+                <a href="#" class="btn-login">Login</a>
+                <a href="#" class="btn btn-primary">Register</a>
+                
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Find Your Dream <span>Scholarship</span> To Study Abroad</h1>
+            <p>Explore fully funded and partially funded scholarship opportunities across the globe. Your international academic journey starts here.</p>
+            <a href="#search-section" class="btn btn-secondary btn-large">Start Exploring <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <section id="search-section" class="search-filter-section">
+        <div class="container">
+            <div class="search-wrapper">
+                <h2>Search Scholarships</h2>
+                <form id="filterForm" class="filter-form">
+                    <div class="input-group search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search keywords (e.g., Full Bright, DAAD, Commonwealth)...">
+                    </div>
+                    <div class="filters-grid">
+                        <div class="input-group">
+                            <label for="degreeFilter"><i class="fas fa-user-graduate"></i> Degree Level</label>
+                            <select id="degreeFilter">
+                                <option value="">All Levels</option>
+                                <option value="bachelors">Bachelors</option>
+                                <option value="masters">Masters / MS</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="countryFilter"><i class="fas fa-globe-americas"></i> Destination</label>
+                            <select id="countryFilter">
+                                <option value="">All Countries</option>
+                                <option value="usa">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="germany">Germany</option>
+                                <option value="canada">Canada</option>
+                                <option value="australia">Australia</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="typeFilter"><i class="fas fa-wallet"></i> Funding Type</label>
+                            <select id="typeFilter">
+                                <option value="">All Types</option>
+                                <option value="fully-funded">Fully Funded</option>
+                                <option value="partially-funded">Partially Funded</option>
+                                <option value="tuition-waiver">Tuition Fee Waiver</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-search"><i class="fas fa-sliders-h"></i> Apply Filters</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+             <section id="scholarships" style="padding: 40px 20px; text-align: center;">
+    <h2 style="margin-bottom: 30px;">Latest Scholarship Opportunities</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+        <div style="border: 1px solid #ddd; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #2e7d32;">Commonwealth Scholarship</h3>
+            <p><strong>Country:</strong> UK</p>
+            <p>Fully funded scholarship for Masters and PhD students.</p>
+            </div>
+
+        <div style="border: 1px solid #ddd; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #2e7d32;">DAAD Scholarship</h3>
+            <p><strong>Country:</strong> Germany</p>
+            <p>Open for all subjects, providing monthly stipend and travel allowance.</p>
+            </div>
+
+        <div style="border: 1px solid #ddd; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #2e7d32;">Turkiye Burslari</h3>
+            <p><strong>Country:</strong> Turkey</p>
+            <p>Covers tuition, accommodation, and health insurance.</p>
+            </div>
+
+    </div>
+</section>
+        
+
+    
+         <button type="button" 
+        onclick="window.location.href='apply.html';" 
+        style="padding: 12px 24px; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+    Apply Now
+</button>
+
+
+        <script>
+    document.querySelectorAll('a[href="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Yeh page ko upar jump karne se rokta hai
+        });
+    });
+</script>
+
+    </div>
+</section>
+
+
+    <section id="scholarships" class="scholarships-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Scholarships</h2>
+                <p>Latest and most prestigious international scholarship opportunities currently open for applications.</p>
+            </div>
+            
+            <div class="scholarship-grid" id="scholarshipGrid">
+                <div class="scholarship-card" data-degree="masters phd" data-country="usa" data-type="fully-funded">
+                    <div class="card-badge fully-funded">Fully Funded</div>
+                    <div class="card-body">
+                        <div class="country-tag"><i class="fas fa-map-marker-alt"></i> USA</div>
+                        <h3>Fulbright Scholarship Program 2027</h3>
+                        <p>Offers full tuition fee, textbooks, airfare, a living stipend, and health insurance for Masters and PhD studies.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Deadline: Oct 15, 2026</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="scholarship-card" data-degree="masters" data-country="germany" data-type="fully-funded">
+                    <div class="card-badge fully-funded">Fully Funded</div>
+                    <div class="card-body">
+                        <div class="country-tag"><i class="fas fa-map-marker-alt"></i> Germany</div>
+                        <h3>DAAD EPOS Scholarship</h3>
+                        <p>Focuses on development-related postgraduate courses for professionals from developing countries at top German universities.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Deadline: Varies</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="scholarship-card" data-degree="bachelors masters" data-country="uk" data-type="partially-funded">
+                    <div class="card-badge partially-funded">Partial Funding</div>
+                    <div class="card-body">
+                        <div class="country-tag"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
+                        <h3>Rhodes Scholarships at Oxford</h3>
+                        <p>Supporting exceptional all-round students to study postgraduate courses at the University of Oxford.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Deadline: Aug 01, 2026</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="countries" class="countries-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Browse by Top Destination</h2>
+                <p>Find scholarship opportunities filtered by your favorite destination country.</p>
+            </div>
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="icon-box"><i class="fas fa-university"></i></div>
+                    <h3>United States</h3>
+                    <p>Explore over 500+ institutional and government aids.</p>
+                </div>
+                <div class="country-card">
+                    <div class="icon-box"><i class="fas fa-euro-sign"></i></div>
+                    <h3>Europe</h3>
+                    <p>Free-education and fully funded erasmus programs.</p>
+                </div>
+                <div class="country-card">
+                    <div class="icon-box"><i class="fas fa-map-signs"></i></div>
+                    <h3>United Kingdom</h3>
+                    <p>Chevening and Commonwealth flagship awards.</p>
+                </div>
+                <div class="country-card">
+                    <div class="icon-box"><i class="fas fa-leaf"></i></div>
+                    <h3>Canada</h3>
+                    <p>Vanier and Ontario graduate student fellowships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from students who achieved their dreams through our portal.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"I found the DAAD scholarship updates right on time here. The interface helped me filter exactly what I needed for my Master's in Germany."</p>
+                    <div class="user-info">
+                        <h4>Ali Rehman</h4>
+                        <span>Technical University of Munich</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"The detailed deadline trackers saved me. I applied for the Fulbright program and got selected. Highly recommend this information portal!"</p>
+                    <div class="user-info">
+                        <h4>Sana Malik</h4>
+                        <span>Harvard University</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> Global<span>Scholar</span></a>
+                <p>Your one-stop destination for authentic scholarship alerts, eligibility guidance, and study abroad information portals.</p>
+            </div>
+            
+            
+<div class="footer-links">
+    <h4>Quick Links</h4>
+    <ul>
+        <li><a href="#search-section">Search Scholarships</a></li>
+        <li><a href="#countries">Top Destinations</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</div>
+            <div class="footer-socials">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+    
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GlobalScholar Portal. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+
+Eligibility Assessment Quiz -->
+<section class="quiz-section" style="padding: 60px 0; background-color: #edf2f7;">
+    <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 30px;">
+            <h2>Instant Eligibility Checker</h2>
+            <p>Check your eligibility for fully-funded scholarships in just a few minutes!</p>
+        </div>
+        
+        <div style="max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: var(--shadow);">
+            <form id="eligibilityForm" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="input-group" style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-weight: 500;">Your Current/Last CGPA (Out of 4.0)</label>
+                    <input type="number" id="quizCgpa" step="0.1" min="0" max="4" placeholder="e.g. 3.4" required style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none;">
+                </div>
+                
+                <div class="input-group" style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-weight: 500;">IELTS / TOEFL / English Test Status</label>
+                    <select id="quizEnglish" required style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none; background: #fff;">
+                        <option value="yes">Yes, I have valid test score (IELTS 6.5+ or equivalent)</option>
+                        <option value="no">No, but I can manage or have English Proficiency Certificate</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="padding: 14px; font-size: 16px;">Check My Eligibility</button>
+            </form>
+
+            <!-- Result Box hidden by default -->
+            <div id="quizResult" style="display: 5; margin-top: 25px; padding: 20px; border-radius: 8px; text-align: center; font-weight: 500;"></div>
+        </div>
+    </div>
+</section>
+<script src="auth-system.js"></script>
+    <script src="portal-analytics.js"></script>
+    <script src="destination-cards.js"></script>
+    <script src="student-reviews.js"></script>
+    <script src="final-patch.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+</body>
+</html>
+
+<script src="script.js"></script>
+<script src="-addon.js"></script> ```
+<script src="script.js"></script>
+<script src="feedback-widget.js"></script> ```
+
+<script src="script.js"></script>
+<script src="-addon.js"></script>
+<script src="features-hub.js"></script> ```
+
+<script src="features-hub.js"></script>
+<script src="more-features.js"></script> ```
+
+<script src="features-hub.js"></script>
+<script src="more-features.js"></script>
+<script src="success-stories.js"></script> ```
+
+<script src="more-features.js"></script>
+<script src="final-patch.js"></script> ```
+<script src="portal-analytics.js"></script>
+    <script src="destination-cards.js"></script>
+    <script src="student-reviews.js"></script>
+    
+    <script src="final-patch.js"></script>
+    <script src="portal-analytics.js"></script>
+    <script src="destination-cards.js"></script>
+    <script src="student-reviews.js"></script>
+    <script src="admin-contact.js"></script> <script src="final-patch.js"></script>
+    <section style="padding: 20px; font-family: sans-serif;">
+    
+    </div>
+
+    <hr>
+
+<script>
+    
+    const dbUrl ="https://console.firebase.google.com/project/scholarship-portal-427b4/overview" ;
+
+    
+    document.getElementById('myContactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+            name: document.getElementById('name').value,
+            msg: document.getElementById('msg').value
+        };
+        await fetch(dbUrl, { method: 'POST', body: JSON.stringify(data) });
+        alert("Data Saved!");
+        location.reload(); // Page refresh hoga taake dashboard update ho jaye
+    });
+
+    
+    fetch(dbUrl)
+    .then(res => res.json())
+    .then(data => {
+        const list = document.getElementById('data-list');
+        list.innerHTML = "";
+        for(let key in data) {
+            list.innerHTML += `<p><b>${data[key].name}:</b> ${data[key].msg}</p>`;
+        }
+    });
+</script>
+
+<script>
+    
+    const databaseurl="https://console.firebase.google.com/project/scholarship-portal-427b4/overview.json" ;
+
+    // 1. Data Save Karne Ka Logic
+    document.getElementById('queryForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+            name: document.getElementById('userName').value,
+            question: document.getElementById('userQuestion').value,
+            date: new Date().toLocaleDateString()
+        };
+        await fetch(dbUrl, { method: 'POST', body: JSON.stringify(data) });
+        alert("Question Submitted Successfully!");
+         
+    });
+
+    // 2. Data Fetch (Dikhane) Ka Logic
+    fetch(dbUrl)
+    .then(res => res.json())
+    .then(data => {
+        const list = document.getElementById('queryList');
+        list.innerHTML = "";
+        for(let key in data) {
+            list.innerHTML += `<div style="border-bottom: 1px solid #eee; padding: 10px 0;">
+                <b style="color: #333;">${data[key].name}</b>: ${data[key].question} 
+                <br><small style="color: #888;">Posted on: ${data[key].date}</small>
+            </div>`;
+        }
+    });
+</script>
+<a href="smart-finder.html">
+  <button>🎓 Smart Scholarship Finder</button>
+</a><iframe src="smart-finder.html" width="100%" height="600px" style="border:none;"></iframe>
+ 
+<div class="timer-card">
+    <p>Application Deadline in:</p>
+    <div id="countdown" class="timer-display">Loading...</div>
+</div>
+
+
+
+<div class="scholarship-card">
+    <h4>University of Germany Scholarship</h4>
+    <button onclick="toggleSave(this)" id="saveBtn">🤍 Save to Profile</button>
+</div>
+
+<script>
+function toggleSave(btn) {
+    if (btn.innerText === "🤍 Save to Profile") {
+        btn.innerText = "❤️ Saved!";
+        
+    } else {
+        btn.innerText = "🤍 Save to Profile";
+    }
+}
+</script>
+
+<div class="scholarship-card">
+    <h4>University of Chevening Scholarships 2027</h4>
+    <button onclick="toggleSave(this)" id="saveBtn">🤍 Save to Profile</button>
+</div>
+
+<script>
+function toggleSave(btn) {
+    if (btn.innerText === "🤍 Save to Profile") {
+        btn.innerText = "❤️ Saved!";
+        // Yahan aap database mein save karne ka function call kar sakti hain
+    } else {
+        btn.innerText = "🤍 Save to Profile";
+    }
+}
+</script>
+
+<div class="scholarship-card">
+    <h4>University of DAAD EPOS Scholarship
+</h4>
+    <button onclick="toggleSave(this)" id="saveBtn">🤍 Save to Profile</button>
+</div>
+
+<script>
+function toggleSave(btn) {
+    if (btn.innerText === "🤍 Save to Profile") {
+        btn.innerText = "❤️ Saved!";
+        // Yahan aap database mein save karne ka function call kar sakti hain
+    } else {
+        btn.innerText = "🤍 Save to Profile";
+    }
+}
+</script>
+
+<div class="scholarship-card">
+    <h4>University of Fulbright Scholarship Program</h4>
+    <button onclick="toggleSave(this)" id="saveBtn">🤍 Save to Profile</button>
+</div>
+
+<script>
+function toggleSave(btn) {
+    if (btn.innerText === "🤍 Save to Profile") {
+        btn.innerText = "❤️ Saved!";
+        // Yahan aap database mein save karne ka function call kar sakti hain
+    } else {
+        btn.innerText = "🤍 Save to Profile";
+    }
+}
+</script>
+
+<div class="scholarship-card">
+    <h4>University of Rhodes Scholarships at Oxford
+</h4>
+    <button onclick="toggleSave(this)" id="saveBtn">🤍 Save to Profile</button>
+</div>
+
+<script>
+function toggleSave(btn) {
+    if (btn.innerText === "🤍 Save to Profile") {
+        btn.innerText = "❤️ Saved!";
+        // Yahan aap database mein save karne ka function call kar sakti hain
+    } else {
+        btn.innerText = "🤍 Save to Profile";
+    }
+}
+</script>
+
+<div class="scholarship-card">
+    <h4>University of Erasmus Mundus Joint Masters
+ Scholarship</h4>
+    <button onclick="toggleSave(this)" id="saveBtn">🤍 Save to Profile</button>
+</div>
+
+<script>
+function toggleSave(btn) {
+    if (btn.innerText === "🤍 Save to Profile") {
+        btn.innerText = "❤️ Saved!";
+        // Yahan aap database mein save karne ka function call kar sakti hain
+    } else {
+        btn.innerText = "🤍 Save to Profile";
+    }
+}
+</script>
+
+
+
+<div class="timer-card">
+    <p>Application Deadline in:</p>
+    <div id="countdown" class="timer-display">Loading...</div>
+</div>
+
+<div class="recommendation-box">
+    <h3>Find Your Match</h3>
+    <input type="text" id="major" placeholder="Enter your field (e.g., Computer Science)">
+    <input type="number" id="gpa" placeholder="Enter your GPA">
+    <button onclick="getRecommendations()">Get Recommendations</button>
+    <div id="matchResult"></div>
+</div>
+
+<div class="stats-banner" style="display: flex; gap: 20px; background: #004a99; padding: 20px; color: white; border-radius: 8px;">
+    <div class="stat-item">⭐ 50+ Scholarships</div>
+    <div class="stat-item">🌍 30+ Countries</div>
+    <div class="stat-item">🏫 100+ Universities</div>
+    <div class="stat-item">🎧 24/7 Support</div>
+</div>
+
+<div style="display: flex; gap: 40px; margin-top: 30px;">
+    
+    <div style="flex: 1;">
+        <h3>Latest Announcements</h3>
+        <ul>
+            <li>New: EULT Scholarship open.</li>
+            <li>Deadline approaching for DAAD.</li>
+        </ul>
+
+
+        
+        <h3>Popular Scholarship Filters</h3>
+        <button>Undergraduate</button> <button>Graduate</button> 
+        <button>Fully Funded</button> <button>Canada</button>
+    </div>
+
+    <div style="flex: 1;">
+        <h3>Student Testimonials</h3>
+        <p>"I found the DAAD scholarship updates right on time here. The interface helped me filter exactly what I needed for my Master's in Germany." - Ali Rehman</p>
+        <p>"The detailed deadline trackers saved me. I applied for the Fulbright program and got selected. Highly recommend this information portal!" - Sana Malik</p>
+
+    </div>
+</div>
+
+<div class="main-layout">
+    <div class="left-section">
+        <h3>Latest Announcements</h3>
+        <h3>Popular Scholarship Filters</h3>
+        </div>
+
+    <div class="right-section"></div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>GlobalScholar</h3>
+            <p>Your portal for authentic, fully-funded global scholarships.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Stay Updated</h3>
+            <div class="newsletter">
+    <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+        <input type="email" placeholder="Enter your email..." required>
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 GlobalScholar Portal. All rights reserved.</p>
+    </div>
+<button onclick="window.scrollTo(0, 0);" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #004a99; color: white; border: none; border-radius: 50%; cursor: pointer;">↑</button>
+
+</footer>
+</body> 
+</html>
+
+<a href="features.html" class="feature-btn">View More Features</a>
+<div class="features-link">
+    <p>Check out our new updates and features:</p>
+    <a href="features.html" style="padding: 10px 20px; background-color: #25d366; color: white; text-decoration: none; border-radius: 5px;">
+        View New Features
+    </a>
+</div>
+
+<form id="myForm">
+    Name: <input type="text" id="name"><br><br>
+    Registration No: <input type="text" id="regNo"><br><br>
+    <button type="button" onclick="submitForm(event)">Submit Application</button>
+</form>
+
+<script>
+    function submitForm() {
+        
+        event.preventDefault(); 
+        
+        // Yahan aap apna message dikhayein
+        alert("Success! Your application has been submitted.");
+        
+        // Agar aap chahti hain ke data waisa hi rahe toh 'reset' na likhein
+        // Agar submit ke baad fields khali karni hain toh niche wali line use karein:
+        // document.getElementById("myForm").reset();
+    }
+</script>
+
+<script>
+    function handleFormSubmit(event) {
+        // 1. Yeh line page ko refresh hone se rokti hai
+        event.preventDefault(); 
+        
+        // 2. Ab yahan aap apna message dikha sakte hain
+        alert("Success! Your application has been submitted.");
+        
+        // 3. (Optional) Agar aap chahti hain ke submit ke baad fields khali ho jayein:
+        document.getElementById("myForm").reset();
+    }
+</script>
+</div>
+
+<div id="successMessage" style="display:none; color: green; font-weight: bold;">
+    <h3>Successfully Submitted!</h3>
+    <p>Your application is under review.</p>
+</div>
+
+<script>
+    document.getElementById("scholarshipForm").addEventListener("submit", function(event){
+        event.preventDefault(); // Page ko refresh hone se roke ga
+        document.getElementById("form-container").style.display = "none"; // Form hata dega
+        document.getElementById("successMessage").style.display = "block"; // Message dikha dega
+    });
+</script>
+
+

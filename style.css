@@ -1,0 +1,814 @@
+/* --- Global Reset & Variables --- */
+:root {
+    --primary-color: #1a365d;    /* Deep Blue */
+    --secondary-color: #2b6cb0;  /* Bright Blue */
+    --accent-color: #319795;     /* Teal/Green tint */
+    --text-color: #2d3748;       /* Charcoal Black for readability */
+    --bg-light: #f7fafc;         /* Off-white background */
+    --white: #ffffff;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Typography & Buttons --- */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+}
+
+.btn-outline {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links a {
+    margin: 0 15px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.nav-auth .btn-login {
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.95), rgba(43, 108, 176, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') no-repeat center center/cover;
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    color: var(--white);
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: #4fd1c5;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+}
+
+.btn-large {
+    padding: 14px 32px;
+    font-size: 16px;
+}
+
+/* --- Search & Filter Design --- */
+.search-filter-section {
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+
+.search-wrapper {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.search-wrapper h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 18px;
+    top: 20px;
+    color: #a0aec0;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.filters-grid select {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    background-color: #fff;
+    outline: none;
+}
+
+.btn-search {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+}
+
+/* --- Section Standard Layout --- */
+.scholarships-section, .countries-section, .testimonials-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #718096;
+}
+
+/* --- Scholarship Cards Grid --- */
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.scholarship-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-top: 4px solid var(--secondary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.card-badge.fully-funded { background-color: #38a169; }
+.card-badge.partially-funded { background-color: #dd6b20; }
+
+.card-body {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.country-tag {
+    font-size: 13px;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.scholarship-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    min-height: 54px;
+}
+
+.scholarship-card p {
+    font-size: 14px;
+    color: #4a5568;
+    margin-bottom: 15px;
+}
+
+.card-meta {
+    font-size: 13px;
+    color: #e53e3e;
+    font-weight: 500;
+}
+
+.card-footer {
+    padding: 20px 25px;
+    background-color: #f7fafc;
+    border-top: 1px solid #edf2f7;
+}
+
+.card-footer .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* --- Countries Grid --- */
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.country-card {
+    background-color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.country-card .icon-box {
+    font-size: 32px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.country-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.country-card p {
+    font-size: 13px;
+    color: #718096;
+}
+
+/* --- Testimonials --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--accent-color);
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+.user-info h4 {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.user-info span {
+    font-size: 12px;
+    color: #718096;
+}
+
+/* --- Footer Design --- */
+footer {
+    background-color: var(--primary-color);
+    color: #cbd5e0;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+    color: white;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer-links h4, .footer-socials h4 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+}
+
+/* --- Responsive Layout Utilities --- */
+@media (max-width: 768px) {
+    .nav-links, .nav-auth {
+        display: none; /* Can be handled via JavaScript menu toggling */
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- DARK MODE STYLES --- */
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --sub-text: #4a5568;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a202c;
+    --card-bg: #2d3748;
+    --text-color: #f7fafc;
+    --sub-text: #cbd5e0;
+}
+
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.scholarship-card {
+    background: var(--card-bg) !important;
+    color: var(--text-color) !important;
+}
+
+.scholarship-card p {
+    color: var(--sub-text) !important;
+}
+
+.theme-btn {
+    background: #002d62;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+[data-theme="dark"] .theme-btn {
+    background: #4a5568;
+}
+/* --- SUGGESTIONS BOX STYLING --- */
+.suggestions-box {
+    position: absolute;
+    background: white;
+    border: 1px solid #cbd5e0;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 100;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+[data-theme="dark"] .suggestions-box {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+.suggestion-item:hover {
+    background-color: #edf2f7;
+}
+[data-theme="dark"] .suggestion-item:hover {
+    background-color: #4a5568;
+}
+
+.countdown-badge {
+    display: inline-block;
+    background: #edf2f7;
+    color: #4a5568;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    width: fit-content;
+}
+[data-theme="dark"] .countdown-badge {
+    background: #4a5568;
+    color: #edf2f7;
+}
+
+/* --- PERFECT CARD STRUCTURE FIX --- */
+.scholarship-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    width: 340px;
+    min-height: 320px; /* Sab cards ki height ek barabar rahegi */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* Top Row: Layout */
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.countdown-badge {
+    background: #edf2f7;
+    color: #4a5568;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bookmark-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #e53e3e;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Content Truncation */
+.scholarship-card h3 {
+    font-size: 20px;
+    color: #002d62;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Bottom Row Dynamic Alignment */
+.card-bottom-row {
+    margin-top: auto; /* Isse date aur button hamesha card ke bottom par rahenge */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #edf2f7;
+    padding-top: 15px;
+}
+
+.card-date {
+    font-size: 12px;
+    color: #718096;
+    font-weight: 500;
+}
+
+.view-details-btn {
+    background: #002d62;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.view-details-btn:hover {
+    background: #001a3a;
+}
+
+
+
+/* Form inputs ki stability ke liye */
+form input, form textarea {
+    display: block !important;
+    width: 90% !important;          /* Width fix rahegi */
+    margin: 10px auto !important;   /* Jump nahi karega */
+}
+
+/* Timer Card Design */
+.timer-card {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+.timer-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #f1c40f; /* Golden color for countdown */
+}
+
+.stats-banner {
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+}
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 5px;
+}
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    border: 1px solid #004a99;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover {
+    background: #004a99;
+    color: white;
+}
+
+/* Layout Container ko phailane ke liye */
+.main-layout {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px; /* Space barhane ke liye */
+    gap: 50px;     /* Dono sections ke darmiyan gap */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Annoucement aur Filters wale box ko bada karein */
+.left-section {
+    flex: 1.5; /* Yeh hissa bada hoga */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Professional shadow */
+}
+
+/* Contact Us form ko set karein */
+.right-section {
+    flex: 1; /* Yeh thoda chota hoga */
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* Input fields ko bada karein */
+input, textarea {
+    width: 100%;
+    padding: 15px; /* Input boxes ko bada karne ke liye */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.site-footer {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+.newsletter {
+    display: flex;
+    gap: 10px;
+}
+.newsletter input {
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+}
+.newsletter button {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #300909;
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+.newsletter button {
+    cursor: pointer; /* Yeh batata hai ke button clickable hai */
+    position: relative;
+    z-index: 10;
+}
+/* Body ko flex container banayein */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Puri screen ki height */
+    margin: 0;
+}
+
+/* Footer ko page ke niche dhakelne ke liye */
+.site-footer {
+    margin-top: auto; /* Ye footer ko automatically page ke end mein rakhega */
+}
+.chat-btn {
+    position: fixed; /* Screen par fix rahega */
+    bottom: 20px;    /* Neeche se distance */
+    right: 20px;     /* Right side se distance */
+    z-index: 999999; /* Isay sab se oopar layega */
+    cursor: pointer !important; /* Mouse ko hand icon banayega */
+    pointer-events: auto !important; /* Click ko allow karega */
+}
