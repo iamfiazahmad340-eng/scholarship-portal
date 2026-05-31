@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | GlobalScholar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin: 60px auto; }
+        .contact-info h2 { font-size: 28px; margin-bottom: 20px; }
+        .contact-info p { color: #4a5568; margin-bottom: 30px; }
+        .info-card { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .info-card i { font-size: 24px; color: var(--accent-color); }
+        .contact-form { background: #fff; padding: 40px; border-radius: 8px; box-shadow: var(--shadow); }
+        .contact-form h3 { margin-bottom: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+        .form-group input, .form-group textarea { padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none; font-family: inherit; }
+        @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; gap: 30px; } }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container logo-container">
+            <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> Global<span>Scholar</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#scholarships">Scholarships</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Form Container -->
+    <div class="container contact-wrapper">
+        <!-- Left Side: Info -->
+        <div class="contact-info">
+            <h2>Get In Touch With Our Experts</h2>
+            <p>Agar aapko admission guidelines, document attestation, ya scholarship form filling mein koi masla aa raha hai, toh aap humse rabta kar sakte hain.</p>
+            
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4 style="color: var(--primary-color);">Email Us</h4>
+                    <span>info@globalscholar.com</span>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4 style="color: var(--primary-color);">Our Office</h4>
+                    <span>Faisalabad, Punjab, Pakistan</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <form class="contact-form" onsubmit="alert('Thank you! Your message has been sent.'); this.reset(); return false;">
+            <h3>Send Message</h3>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="e.g. Ahmad Khan" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="e.g. ahmad@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Your Query / Message</label>
+                <textarea rows="5" placeholder="Write your question here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-color); padding: 20px 0; color:#cbd5e0; text-align:center; font-size:14px;">
+        <p>&copy; 2026 GlobalScholar Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

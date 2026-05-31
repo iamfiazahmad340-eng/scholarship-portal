@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body style="margin: 0; padding: 20px; font-family: sans-serif; background: #fff;">
+    <h3 style="margin-top: 0;">Contact Help Desk</h3>
+    <form id="fixedForm">
+        <input type="text" id="name" placeholder="Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box;"><br>
+        <textarea id="query" placeholder="Your Query" required style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box;"></textarea><br>
+        <button type="submit" style="padding: 10px 20px; background: #007bff; color: #fff; border: none; cursor: pointer;">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('fixedForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = { name: document.getElementById('name').value, query: document.getElementById('query').value };
+            // Apna Firebase URL yahan daalein
+            await fetch('https://YOUR_DATABASE_URL_HERE.firebaseio.com/queries.json', {
+                method: 'POST', body: JSON.stringify(data)
+            });
+            alert("Data Saved!");
+            location.reload();
+        });
+    </script>
+</body>
+</html>
