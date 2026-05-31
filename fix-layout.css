@@ -1,0 +1,11 @@
+/* fix-layout.css */
+#faq-section {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    min-height: 300px; /* Yeh height section ko stable rakhegi */
+    contain: layout;   /* Browser ko kehta hai: "isi box mein raho, baaki page ko mat chhero" */
+    margin: 20px 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}

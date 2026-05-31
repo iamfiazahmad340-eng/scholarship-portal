@@ -1,0 +1,54 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Smooth animations */
+section,
+div,
+.card,
+.faq,
+.hero,
+.container{
+  transition: all 0.4s ease-in-out;
+}
+
+/* FAQ Fix */
+.faq-answer{
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.faq.active .faq-answer{
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Prevent layout jump */
+img{
+  max-width: 100%;
+  display: block;
+}
+
+/* Button smooth effect */
+button{
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover{
+  transform: scale(1.03);
+}
+
+/* Card hover smooth */
+.card:hover{
+  transform: translateY(-5px);
+}
