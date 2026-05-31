@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Scholarship Finder</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+h2 {
+    text-align: center;
+    color: #1a365d;
+}
+select, input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+button {
+    background: #2b6cb0;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background: #1a365d;
+}
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e6fffa;
+    border-left: 4px solid #319795;
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Smart Scholarship Finder</h2>
+
+    <select id="degree">
+        <option value="">Select Degree</option>
+        <option>Undergraduate</option>
+        <option>Masters</option>
+        <option>PhD</option>
+    </select>
+
+    <select id="country">
+        <option value="">Select Country</option>
+        <option>USA</option>
+        <option>UK</option>
+        <option>Germany</option>
+        <option>Canada</option>
+    </select>
+
+    <input type="text" id="interest" placeholder="Your field (e.g. Computer Science)">
+
+    <button onclick="findScholarship()">Find Scholarships</button>
+
+    <div class="result" id="resultBox"></div>
+</div>
+
+<script>
+function findScholarship() {
+    let degree = document.getElementById("degree").value;
+    let country = document.getElementById("country").value;
+    let interest = document.getElementById("interest").value.toLowerCase();
+
+    let resultBox = document.getElementById("resultBox");
+
+    if (!degree || !country || !interest) {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "⚠️ Please fill all fields first!";
+        return;
+    }
+
+    // Scholarship database (SMART FILTER SYSTEM)
+    let scholarships = [
+        {name: "Chevening Scholarship", country: "UK", degree: "Masters", field: "all"},
+        {name: "Fulbright Scholarship", country: "USA", degree: "Masters", field: "all"},
+        {name: "DAAD Scholarship", country: "Germany", degree: "Masters", field: "engineering"},
+        {name: "Vanier Canada Graduate", country: "Canada", degree: "PhD", field: "all"},
+        {name: "Turkiye Burslari", country: "Turkey", degree: "Undergraduate", field: "all"},
+        {name: "Erasmus Mundus", country: "Europe", degree: "Masters", field: "computer science"},
+        {name: "Swiss Excellence Scholarship", country: "Switzerland", degree: "PhD", field: "research"}
+    ];
+
+    // Filter results
+    let results = scholarships.filter(s => 
+        s.degree.toLowerCase() === degree.toLowerCase() &&
+        s.country.toLowerCase().includes(country.toLowerCase()) &&
+        (s.field === "all" || interest.includes(s.field))
+    );
+
+    // Output
+    if (results.length === 0) {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "❌ No matching scholarships found. Try different options.";
+        return;
+    }
+
+    let html = "✔ Matching Scholarships:<br><br>";
+
+    results.forEach(r => {
+        html += "🎓 <b>" + r.name + "</b><br>";
+        html += "Country: " + r.country + "<br>";
+        html += "Degree: " + r.degree + "<br><br>";
+    });
+
+    resultBox.style.display = "block";
+    resultBox.innerHTML = html;
+}
+</script>

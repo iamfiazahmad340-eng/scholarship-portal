@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live Scholarships Feed</title>
+<style>
+body {
+    font-family: Arial;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #1a365d;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 5px solid #2b6cb0;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.title {
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: #319795;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Live Scholarships Updates</h2>
+    <div id="feed"></div>
+</div>
+
+<script>
+let scholarships = [
+    {name:"Chevening Scholarship", country:"UK", link:"#"},
+    {name:"Fulbright Scholarship", country:"USA", link:"#"},
+    {name:"DAAD Germany Scholarship", country:"Germany", link:"#"},
+    {name:"Erasmus Mundus Europe", country:"Europe", link:"#"},
+    {name:"Turkiye Burslari", country:"Turkey", link:"#"},
+    {name:"Chinese Government Scholarship", country:"China", link:"#"},
+    {name:"Australia Awards Scholarship", country:"Australia", link:"#"}
+];
+
+let index = 0;
+
+function loadScholarships() {
+    let feed = document.getElementById("feed");
+    feed.innerHTML = "";
+
+    // show 4 at a time
+    for (let i = 0; i < 4; i++) {
+        let s = scholarships[(index + i) % scholarships.length];
+
+        feed.innerHTML += `
+            <div class="card">
+                <div class="title">${s.name}</div>
+                <div>Country: ${s.country}</div>
+                <a class="btn" href="${s.link}">View Details</a>
+            </div>
+        `;
+    }
+
+    index++;
+}
+
+// refresh every 3 seconds (LIVE effect)
+loadScholarships();
+setInterval(loadScholarships, 3000);
+</script>
+
+</body>
+</html>

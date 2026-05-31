@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Details - GlobalScholar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 850px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 6px solid #002d62; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: #002d62; text-decoration: none; font-weight: 600; margin-bottom: 25px; transition: transform 0.2s; }
+        .back-btn:hover { transform: translateX(-5px); }
+        h1 { color: #002d62; font-size: 32px; margin-bottom: 15px; }
+        .meta-info { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .meta-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4a5568; background: #edf2f7; padding: 6px 12px; border-radius: 20px; }
+        .meta-item i { color: #002d62; }
+        .section-title { color: #002d62; font-size: 20px; margin: 25px 0 12px 0; display: flex; align-items: center; gap: 10px; border-left: 4px solid #002d62; padding-left: 10px; }
+        p { color: #4a5568; font-size: 16px; margin-bottom: 20px; text-align: justify; }
+        ul { list-style: none; margin-bottom: 25px; }
+        ul li { position: relative; padding-left: 25px; margin-bottom: 10px; color: #4a5568; }
+        ul li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; left: 0; color: #2f855a; }
+        .btn-apply { display: inline-flex; align-items: center; gap: 10px; background: #2f855a; color: white; text-decoration: none; padding: 14px 30px; font-weight: 600; border-radius: 6px; box-shadow: 0 4px 6px rgba(47,133,90,0.2); transition: background 0.2s; margin-top: 15px; }
+        .btn-apply:hover { background: #22543d; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Scholarships</a>
+
+        <h1 id="detTitle">Loading Scholarship...</h1>
+        
+        <div class="meta-info">
+            <div class="meta-item"><i class="fas fa-globe"></i> <span id="detCountry">-</span></div>
+            <div class="meta-item"><i class="fas fa-graduation-cap"></i> <span id="detDegree">-</span></div>
+            <div class="meta-item"><i class="fas fa-wallet"></i> <span id="detFunding">-</span></div>
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i> <span id="detDeadline">-</span></div>
+        </div>
+
+        <div class="section-title"><i class="fas fa-info-circle"></i> Description</div>
+        <p id="detDesc">Please wait while the description is loading...</p>
+
+        <div class="section-title"><i class="fas fa-user-check"></i> Eligibility Criteria</div>
+        <ul id="detEligibility"></ul>
+
+        <div class="section-title"><i class="fas fa-file-alt"></i> Required Documents</div>
+        <ul id="detDocuments"></ul>
+
+        <a href="#" id="detLink" target="_blank" class="btn-apply"><i class="fas fa-external-link-alt"></i> Apply On Official Website</a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Is page par dynamic routing chalane ke liye script
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            
+            // script.js ke array se data match karna
+            const scholarship = scholarshipsData.find(item => item.id === id);
+
+            if (scholarship) {
+                document.getElementById('detTitle').innerText = scholarship.title;
+                document.getElementById('detCountry').innerText = scholarship.country;
+                document.getElementById('detDegree').innerText = scholarship.degree.map(d => d.toUpperCase()).join(', ');
+                document.getElementById('detFunding').innerText = scholarship.fundingType === 'fully-funded' ? 'Fully Funded' : 'Partial Funding';
+                document.getElementById('detDeadline').innerText = "Deadline: " + scholarship.deadline;
+                document.getElementById('detDesc').innerText = scholarship.longDesc;
+
+                // Eligibility List Generate Karna
+                const elgList = document.getElementById('detEligibility');
+                elgList.innerHTML = '';
+                scholarship.eligibility.forEach(elg => {
+                    elgList.innerHTML += `<li>${elg}</li>`;
+                });
+
+                // Documents List Generate Karna
+                const docList = document.getElementById('detDocuments');
+                docList.innerHTML = '';
+                scholarship.documents.forEach(doc => {
+                    docList.innerHTML += `<li>${doc}</li>`;
+                });
+
+                // Official Link Set Karna
+                document.getElementById('detLink').href = scholarship.officialLink;
+            } else {
+                document.getElementById('detTitle').innerText = "Scholarship Not Found";
+                document.getElementById('detDesc').innerText = "Apologies, the details for this scholarship could not be retrieved.";
+                document.getElementById('detLink').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
