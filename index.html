@@ -90,7 +90,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-search"><i class="fas fa-sliders-h"></i> Apply Filters</button>
+                <button type="submit" class="btn btn-primary btn-search"><i class="fas fa-sliders-h"></i> Apply Filters</button>
                 </form>
             </div>
         </div>
@@ -142,7 +142,6 @@
     </div>
 </section>
 
-
     <section id="scholarships" class="scholarships-section">
         <div class="container">
             <div class="section-title">
@@ -180,7 +179,6 @@
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
-
                 <div class="scholarship-card" data-degree="bachelors masters" data-country="uk" data-type="partially-funded">
                     <div class="card-badge partially-funded">Partial Funding</div>
                     <div class="card-body">
@@ -195,6 +193,9 @@
                         <a href="#" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
+            </div>
+            <div id="noResults" class="no-results-message" style="display:none; margin-top: 20px; color:#e53e3e; font-weight:600; text-align:center;">
+                No scholarships found. Try a different keyword or filter.
             </div>
         </div>
     </section>
@@ -666,5 +667,20 @@ function toggleSave(btn) {
         document.getElementById("successMessage").style.display = "block"; // Message dikha dega
     });
 </script>
+<input type="text" id="searchInput" placeholder="Search scholarship name...">
+<button type="button" id="searchButton">Apply Filters</button>
 
-
+<div id="scholarshipContainer">
+    <div class="scholarship-card" data-name="daad">
+        <h3>DAAD Scholarship</h3>
+        <p>Germany study program.</p>
+    </div>
+    <div class="scholarship-card" data-name="fulbright">
+        <h3>Fulbright Scholarship</h3>
+        <p>USA study program.</p>
+    </div>
+    <div class="scholarship-card" data-name="commonwealth">
+        <h3>Commonwealth Scholarship</h3>
+        <p>UK study program.</p>
+    </div>
+</div>
