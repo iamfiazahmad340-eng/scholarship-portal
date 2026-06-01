@@ -90,7 +90,7 @@
                             </select>
                         </div>
                     </div>
-                <button type="submit" class="btn btn-primary btn-search"><i class="fas fa-sliders-h"></i> Apply Filters</button>
+<button type="button" onclick="filterScholarships()">Search</button>
                 </form>
             </div>
         </div>
@@ -123,13 +123,11 @@
 </section>
         
 
-    
          <button type="button" 
         onclick="window.location.href='apply.html';" 
         style="padding: 12px 24px; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
     Apply Now
 </button>
-
 
         <script>
     document.querySelectorAll('a[href="#"]').forEach(anchor => {
@@ -359,7 +357,6 @@ Eligibility Assessment Quiz -->
     <script src="student-reviews.js"></script>
     <script src="admin-contact.js"></script> <script src="final-patch.js"></script>
     <section style="padding: 20px; font-family: sans-serif;">
-    
     </div>
 
     <hr>
@@ -380,7 +377,6 @@ Eligibility Assessment Quiz -->
         location.reload(); // Page refresh hoga taake dashboard update ho jaye
     });
 
-    
     fetch(dbUrl)
     .then(res => res.json())
     .then(data => {
@@ -431,7 +427,6 @@ Eligibility Assessment Quiz -->
     <p>Application Deadline in:</p>
     <div id="countdown" class="timer-display">Loading...</div>
 </div>
-
 
 
 <div class="scholarship-card">
@@ -533,8 +528,6 @@ function toggleSave(btn) {
 }
 </script>
 
-
-
 <div class="timer-card">
     <p>Application Deadline in:</p>
     <div id="countdown" class="timer-display">Loading...</div>
@@ -565,7 +558,6 @@ function toggleSave(btn) {
         </ul>
 
 
-        
         <h3>Popular Scholarship Filters</h3>
         <button>Undergraduate</button> <button>Graduate</button> 
         <button>Fully Funded</button> <button>Canada</button>
@@ -632,7 +624,7 @@ function toggleSave(btn) {
         
         event.preventDefault(); 
         
-        // Yahan aap apna message dikhayein
+        
         alert("Success! Your application has been submitted.");
         
         // Agar aap chahti hain ke data waisa hi rahe toh 'reset' na likhein
@@ -682,5 +674,11 @@ function toggleSave(btn) {
     <div class="scholarship-card" data-name="commonwealth">
         <h3>Commonwealth Scholarship</h3>
         <p>UK study program.</p>
+    </div>
+</div>
+    </div>
+    <div class="scholarship-card" data-name="china">
+        <h3>china  Scholarship</h3>
+        <p>china study program.</p>
     </div>
 </div>
